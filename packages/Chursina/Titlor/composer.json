@@ -1,0 +1,20 @@
+{
+    "name": "chursina/titlor",
+    "description": "Tool for a site admin pannel: define a title for each route.",
+    "authors": [
+        {
+            "name": "darkmaiden",
+            "email": "chursinatatianka@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+
+    "autoload": {
+        "classmap": [],
+        "files": [],
+        "psr-4": {
+            "Chursina\\Titlor": "src/"
+        }
+    }
+}
