@@ -13,11 +13,15 @@ class Title extends Model
     public $timestamps = false;
     protected $fillable = ['uri', 'title'];
 
+    /**
+     * @return array - registered uris
+     */
     public static function getAvailableUris()
     {
         $availableUris = array();
         $routes = Route::getRoutes();
         foreach($routes as $route) {
+            // exclude titlor route and post routes
             if($route->uri() !== 'titlor' && $route->getMethods()[0] !== 'POST') {
                 array_push($availableUris, '/'.ltrim($route->uri(), '/'));
             }
@@ -26,6 +30,10 @@ class Title extends Model
         return $availableUris;
     }
 
+    /**
+     * @param $uri
+     * @return bool - if exists
+     */
     public static function uriExists($uri)
     {
         $routes = Route::getRoutes();
@@ -37,5 +45,18 @@ class Title extends Model
         catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e){
             return false;
         }
+    }
+
+    /**
+     * @param $uri
+     * @return mixed - title for uri
+     */
+    public static function getTitleByUri($uri)
+    {
+        $title = Title::where('uri', '=', $uri)->first();
+        if(!$title) {
+            return '';
+        }
+        return $title['title'];
     }
 }

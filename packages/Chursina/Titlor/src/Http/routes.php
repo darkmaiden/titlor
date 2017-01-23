@@ -1,9 +1,6 @@
 <?php
 
-//Route::group(['namespace' => 'Chursina\Titlor\Http\Controllers'], function () {
-    /*Route::resource('titlor', 'TitlorController', array(
-            'except' => array('show'))
-    );*/
+    // Titlor routes
 
     Route::get('/titlor', [
         'uses' => 'Chursina\Titlor\Http\Controllers\TitlorController@getTitlor',
@@ -16,4 +13,3 @@
         'as' => 'titlor.manage',
         'middleware' => 'web'
     ]);
-//});

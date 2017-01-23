@@ -44,7 +44,7 @@
                         @foreach($data as $item)
                             <div class="col-xs-5">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="uri{{$item['id']}}"
+                                    <input type="text" class="form-control" name="uri{{$item['id']}}" readonly
                                            value="{{$item['uri']}}" required/>
                                 </div>
                             </div>
